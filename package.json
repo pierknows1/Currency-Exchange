@@ -6,8 +6,9 @@
   "scripts": {
     "build": "webpack --mode=development",
     "start": "npm run build && webpack serve --mode=development",
-    "lint": "eslint src --ext .js",
-    "test": "jest --coverage"
+    "lint": "eslint src --ext .js --fix",
+    "test": "jest --coverage",
+    "tsc": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -29,8 +30,5 @@
     "webpack": "^5.0.0",
     "webpack-cli": "^5.0.0",
     "webpack-dev-server": "^4.0.0"
-  },
-  "dependencies": {
-    "bootstrap": "^5.3.0"
   }
 }
