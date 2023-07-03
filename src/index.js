@@ -1,7 +1,6 @@
 import apiCurrency from './js/scripts/apiCurrency';
 // import { currency, currencyName } from './js/scripts/availableCode';
 
-
 async function fetchConversion(amount, from, to) {
   try {
     const data = await apiCurrency.getConversion(amount, from, to);
@@ -12,6 +11,9 @@ async function fetchConversion(amount, from, to) {
 }
 
 fetchConversion(100, 'USD', 'EUR');
+
+
+
 
 
 

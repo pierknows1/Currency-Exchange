@@ -10,10 +10,14 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
-    devServer: {
-        open: true,
-        static: ['dist']
-    },
+    // devServer: {
+    //     https:true,
+    //     headers: {
+    //       "Access-Control-Allow-Origin": "*",
+    //       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+    //       "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+    //     }
+    //   },
     devtool: 'eval-source-map', // enable: generate source maps
     plugins: [
         new ESLintPlugin(),

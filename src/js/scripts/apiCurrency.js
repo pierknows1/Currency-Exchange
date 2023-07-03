@@ -11,7 +11,7 @@ export default class apiCurrency {
   
         return response.json();
       } catch (error) {
-        return { error: error.message };
+        return error;
       }
     }
 }
