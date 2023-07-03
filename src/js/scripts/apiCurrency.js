@@ -14,4 +14,4 @@ export default class apiCurrency {
         return { error: error.message };
       }
     }
-  }
+}
