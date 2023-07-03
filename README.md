@@ -1,16 +1,16 @@
 # Node Template
 
-By: 
+By: Pier Rodriguez
 
-Template repo for Node.js project with Webpack, ESLint, Babel, and Jest.
+A simple website that exchanges 5 different currencies
 
-View on [Github Pages](https://username.github.io/repo-name/)
+View on [Github Pages](https://username.github.io/r/)
 
 ## **Technologies Used**
 
 - HTML5
 - CSS3
-- Skeleton 2.0.4 by Dave Gamache
+Javascript
 - Node.js
   - Webpack
   - ESLint

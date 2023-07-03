@@ -1,22 +1,27 @@
-import apiCurrency from './js/scripts/apiCurrency';
-// import { currency, currencyName } from './js/scripts/availableCode';
+import apiCurrency from "./js/scripts/apiCurrency";
 
-async function fetchConversion(amount, from, to) {
+async function fetchConversion(from, to) {
   try {
-    const data = await apiCurrency.getConversion(amount, from, to);
-    console.log(data);
+    const data = await apiCurrency.getConversion(from, to);
+    return data.conversion_rate;
   } catch (error) {
     console.error(error);
   }
 }
 
-fetchConversion(100, 'USD', 'EUR');
+const cForm = document.getElementById("conversion-form");
 
+const result = document.getElementById("result");
 
-
-
-
-
+cForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const fromCurrency = document.getElementById("from-currency").value;
+  const toCurrency = document.getElementById("to-currency").value;
+  const amount = document.getElementById("amount").value;
+  console.log({ fromCurrency, toCurrency, amount });
+  const rate = await fetchConversion(fromCurrency, toCurrency);
+  result.innerHTML = rate * parseInt(amount);
+});
 
 // function fetchConversion() {
 //   apiCurrency.getConversion()
@@ -32,13 +37,10 @@ fetchConversion(100, 'USD', 'EUR');
 //   const form = document.querySelector('form');
 
 //   form.addEventListener('submit', event => {
-//     event.preventDefault(); 
+//     event.preventDefault();
 //     fetchConversion();
 //   });
 // });
-
-
-
 
 // // import fetch from "node-fetch";
 // // import './css/fonts.css';
@@ -48,7 +50,6 @@ fetchConversion(100, 'USD', 'EUR');
 
 // // const url = 'https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD';
 // // https://v6.exchangerate-api.com/v6/fe85d98e3455a344155098c6/latest/USD
-
 
 // // const result = document.querySelector('.result');
 
@@ -61,16 +62,14 @@ fetchConversion(100, 'USD', 'EUR');
 //         const data = await response.json();
 //         return data;
 //     } catch (err) {
-    
+
 //         throw err;
 //     }
 
 // }
 
-
 // // console.log(fetchData());
 // export default fetchData;
-
 
 // // node-fetch
 // // npm install node-fetch
