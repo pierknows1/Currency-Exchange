@@ -1,3 +1,43 @@
+import apiCurrency from './js/scripts/apiCurrency';
+// import { currency, currencyName } from './js/scripts/availableCode';
+
+
+async function fetchConversion(amount, from, to) {
+  try {
+    const data = await apiCurrency.getConversion(amount, from, to);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+fetchConversion(100, 'USD', 'EUR');
+
+
+
+
+// function fetchConversion() {
+//   apiCurrency.getConversion()
+//     .then(data => {
+//       console.log(data);
+//     })
+//     .catch(error => {
+//       console.log(error);
+//     });
+// }
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const form = document.querySelector('form');
+
+//   form.addEventListener('submit', event => {
+//     event.preventDefault(); 
+//     fetchConversion();
+//   });
+// });
+
+
+
+
 // // import fetch from "node-fetch";
 // // import './css/fonts.css';
 // // import './css/styles.css';

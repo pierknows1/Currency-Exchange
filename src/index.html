@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,8 +33,49 @@
         <input type="button" value="Submit">
     </form>
 
-    <div class="result"></div>
+    <div id="result"></div>
 
    
+</body>
+</html> -->
+
+
+<title>Currency Exchange Converter</title>
+<body>
+  <h1>Currency Exchange Converter</h1>
+  
+  <div class="form-main">
+    <h3>Please input exchange value</h3>
+  </div>
+
+  <form id="conversion-form" action="" method="get">
+    <label for="from-currency">From:</label>
+    <select name="from-currency" id="from-currency">
+      <option value="EUR">EURO</option>
+      <option value="CAD">CAD</option>
+      <option value="GBP">GBP</option>
+      <option value="AUD">AUD</option>
+      <option value="USD">USD</option>
+    </select>
+
+    <label for="to-currency">To:</label>
+    <select name="to-currency" id="to-currency">
+      <option value="EUR">EURO</option>
+      <option value="CAD">CAD</option>
+      <option value="GBP">GBP</option>
+      <option value="AUD">AUD</option>
+      <option value="USD">USD</option>
+    </select>
+
+    <input type="number" id="amount" name="amount" placeholder="Amount">
+
+    <input type="submit" value="Convert">
+  </form>
+
+  <div id="result"></div>
+
+  <script src="apiCurrency.js"></script>
+  <script src="index.js"></script>
+
 </body>
 </html>
