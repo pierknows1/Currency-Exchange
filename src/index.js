@@ -9,6 +9,8 @@ async function fetchConversion(from, to) {
   }
 }
 
+//ui logic
+
 const cForm = document.getElementById("conversion-form");
 
 const result = document.getElementById("result");
