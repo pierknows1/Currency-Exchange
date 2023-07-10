@@ -1,23 +1,24 @@
 import apiCurrency from "./js/scripts/apiCurrency";
-
-async function getConversion(from, to) {
-    const data = await apiCurrency.getConversion(from, to);
-    if (data.result){
-      printElements(data, from, to);
-    } else {
-      printError(data, from, to);
+const showResponse = document.getElementById("show-response");
+console.log({ showResponse });
+async function getConversion(from, to, amount) {
+  const data = await apiCurrency.getConversion(from, to);
+  const conversionValue = data.conversion_rate * amount;
+  if (data.result) {
+    printElements(conversionValue, from, to);
+  } else {
+    printError(data.message);
   }
 }
 
-
-function printElements(data, from, to){
-  document.querySelector("show-response").innerText =`${to} is ${data.conversion_result} in ${from}`;
+function printElements(data, from, to) {
+  console.log({ data });
+  showResponse.innerHTML = `${to} is ${data} in ${from}`;
 }
 
-function printError(error){
-  document.querySelector("show-response").innerText =`The currency is not a real currency! ${error}`;
+function printError(error) {
+  showResponse.innerHTML = `The currency is not a real currency! ${error}`;
 }
-
 
 const cForm = document.getElementById("conversion-form");
 
@@ -29,6 +30,6 @@ cForm.addEventListener("submit", async (event) => {
   const toCurrency = document.getElementById("to-currency").value;
   const amount = document.getElementById("amount").value;
   console.log({ fromCurrency, toCurrency, amount });
-  const rate = await getConversion(fromCurrency, toCurrency);
-  result.innerHTML = rate * parseInt(amount);
+  const rate = await getConversion(fromCurrency, toCurrency, amount);
+  //   result.innerHTML = rate * parseInt(amount);
 });
